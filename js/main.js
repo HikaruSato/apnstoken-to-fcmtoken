@@ -57,21 +57,8 @@ function readFile(file) {
 }
 
 function executeFileDownload(text, filename) {
-    var blob = new Blob([text], {type: "text/plain"}); // バイナリデータ作成
-    // IEか他ブラウザかの判定
-    if(window.navigator.msSaveBlob)
-    {
-        // IEなら独自関数を利用
-        window.navigator.msSaveBlob(blob, "ファイル名.txt");
-    } else {
-        var a = document.createElement("a");
-        var url = URL.createObjectURL(blob);
-        a.href = url;
-        a.target = '_blank';
-        a.download = filename;
-        a.click();
-        URL.revokeObjectURL(url);
-    }
+    var blob = new Blob([text], {type: "text/plain"});
+    saveAs(blob, filename);
 }
 
 SOURCE_CSV_COLUMN = {
@@ -121,7 +108,9 @@ function importAPNTokenToFCM(targets, didComplete, didError) {
     tokensArray.push(tokens);
     var progress = 0;
     var jqXHRList = [];
+    var occurredError = false;
     for(var i=0; i<tokensArray.length; i++) {
+        if (occurredError) return;
         // POSTリクエストするjsonを作成
         var payload = {};
         var apnTokens = tokensArray[i]
@@ -156,6 +145,8 @@ function importAPNTokenToFCM(targets, didComplete, didError) {
               $logTextArea.scrollTop($logTextArea[0].scrollHeight - $logTextArea.height());
           },
           error: function() {  // HTTPエラー時
+              if (occurredError) return;
+              occurredError = true;
               didError('通信エラーが発生しました。');
           },
           complete: function() { /*成功・失敗に関わらず通信完了した際の処理*/ }
