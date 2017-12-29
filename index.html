@@ -1,13 +1,18 @@
 <!DOCTYPE HTML>
 <html lang="ja"><head>
 <meta charset="utf-8"> 
-<link rel="stylesheet" href="css/style.css">
+<link  href="http://fonts.googleapis.com/css?family=Cabin:400,500,600,bold" rel="stylesheet" type="text/css" >
+<link  href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular,bold" rel="stylesheet" type="text/css" >
+<link rel="stylesheet" href="css/style.css" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head><body>
-<h1>APNS->FCM TOKEN変換</h1>
+<h1>APNS TO FCM TOKEN CONVERTER</h1>
 <div id="content"><ul>
-<li><b>FCM API KEY:</b><input type="text" id="fcmApiKey" name="fcmApiKey" size="100"></li>
-<li><b>Bundle ID:</b><input type="text" id="bundleId" name="bundleId" size="50"><input type="checkbox" id="sandbox" name="sandbox" value="Sandbox">Sandbox</li>
+<li><b>FCM API KEY:</b></li>
+<li><input type="text" id="fcmApiKey" name="fcmApiKey"></li>
+<li><b>Bundle ID:</b></li>
+<li><input type="text" id="bundleId" name="bundleId"></li>
+<li><b>Sandbox:</b><input type="checkbox" id="sandbox" name="sandbox" value="Sandbox"></li>
 <li>
 	<div class="filebox">
 		<div class="filebox__input">
@@ -19,11 +24,16 @@
 	</div>
 </li>
 <li><output id="list"></output></li>
-<li><button type="button" id="startBtn" name="button">変換開始</button></li>
-<li></li>
+<li>
+	<div class="buttonbox">
+		<a id="startBtn" class="button">
+			<span>START CONVERT</span>
+		</a>
+	</div>
+</li>
 <li>
 	<div class="logbox">
-		<p class="logbox__text"><b>ログ:</b></p>
+		<p class="logbox__text"><b>Log:</b></p>
 		<textarea id="log" rows="30" readonly=""></textarea>
 	</div>
 </li>
