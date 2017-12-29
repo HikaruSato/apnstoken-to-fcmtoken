@@ -1,0 +1,48 @@
+#content ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.filebox {
+	font-size: 1.25rem;
+	background-color: #f2f2f2;
+	position: relative;
+	padding: 100px 20px;
+	outline: 2px dashed black;
+	outline-offset: -10px;
+}
+.filebox.is-dragover{
+	outline-offset: -20px;
+	outline-color: #c4c4c4;
+	background-color: #fff;
+}
+.filebox__input {
+	text-align: center;
+}
+.filebox__file + label {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+	display: block;
+	overflow: hidden;
+}
+.filebox__file + label:hover strong, .filebox__file:focus + label strong, .filebox__file.has-focus + label strong {
+	color: #b4b4b4;
+}
+.filebox__file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.logbox {
+	margin: 10px;
+}
+.logbox__text {
+	margin: 0;
+}
+#log {
+	width: 80%;
+}
