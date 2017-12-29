@@ -44,3 +44,10 @@ test005a5378d2e78268e4a2975a9e166b137f8dd757b9f52130edeb1fc766a1
  * 2カラム目には変換前のAPNSToken
 
 が入っています。
+
+# 動作環境
+次の環境で動作確認済み。
+
+## macOS Sierra(v10.12.6)
+* Chrome v63.0.3239.108
+* Safari v11.0.2
