@@ -138,6 +138,8 @@ body {
 }
 #content ul li{
 	width: 80%;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 #fcmApiKey {
 	width: 100%;
